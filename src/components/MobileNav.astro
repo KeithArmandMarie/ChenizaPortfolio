@@ -1,0 +1,86 @@
+---
+// Mobile Nav — fullscreen overlay drawer
+---
+
+<div
+  class="fixed inset-0 z-[999] bg-[rgba(8,9,11,0.98)] backdrop-blur-[25px] flex flex-col justify-center items-center gap-8 -translate-y-full opacity-0 pointer-events-none transition-all duration-500"
+  id="mobileNav"
+  style="transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);"
+>
+  <nav class="flex flex-col items-center gap-6">
+    {[
+      ['About', '#about'],
+      ['Services', '#services'],
+      ['Work', '#work'],
+      ['Praise', '#testimonials'],
+      ['Contact', '#contact'],
+    ].map(([label, href]) => (
+      <a href={href} class="mobile-nav-link" data-mobile-link>{label}</a>
+    ))}
+  </nav>
+  <a
+    href="#contact"
+    class="mt-4 btn-gold-mobile font-poppins text-[0.8rem] font-bold tracking-[0.14em] uppercase px-8 py-4 rounded-[4px]"
+    data-mobile-link
+  >
+    Start Your Project ✦
+  </a>
+</div>
+
+<style>
+  #mobileNav.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .btn-gold-mobile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #A8821F 100%);
+    color: #08090B;
+    box-shadow: 0 4px 25px rgba(212, 175, 55, 0.22);
+    border: 1px solid #FFF2C2;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-gold-mobile:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px rgba(212, 175, 55, 0.45);
+  }
+</style>
+
+<script>
+  const mobileToggle = document.getElementById('mobileToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileLinks = document.querySelectorAll('[data-mobile-link]');
+  const toggleSpans = mobileToggle?.querySelectorAll('span');
+
+  function openNav() {
+    mobileNav?.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    if (toggleSpans) {
+      toggleSpans[0].style.transform = 'translateY(8px) rotate(45deg)';
+      toggleSpans[1].style.opacity = '0';
+      toggleSpans[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+    }
+  }
+
+  function closeNav() {
+    mobileNav?.classList.remove('is-open');
+    document.body.style.overflow = '';
+    if (toggleSpans) {
+      toggleSpans[0].style.transform = '';
+      toggleSpans[1].style.opacity = '';
+      toggleSpans[2].style.transform = '';
+    }
+  }
+
+  mobileToggle?.addEventListener('click', () => {
+    if (mobileNav?.classList.contains('is-open')) closeNav();
+    else openNav();
+  });
+
+  mobileLinks.forEach(link => link.addEventListener('click', closeNav));
+</script>
