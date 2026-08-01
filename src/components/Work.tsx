@@ -43,7 +43,7 @@ const projects = [
     catLabel: 'Brand Strategy',
     title: 'Agency Content Blueprint',
     fullTitle: 'Agency White-Label Content Blueprint',
-    description: 'Provided turnkey white-label strategy, content planning, and asset production for a creative agency's high-retainer accounts, seamlessly integrating into their Asana and Slack workflows.',
+    description: "Provided turnkey white-label strategy, content planning, and asset production for a creative agency's high-retainer accounts, seamlessly integrating into their Asana and Slack workflows.",
     metrics: [{ num: '5', label: 'Client Accounts Handled' }, { num: '0', label: 'Missed Deadlines' }, { num: '100%', label: 'White-Label Discreteness' }],
     deliverables: ['Content Calendars', 'Client Asset Packs', 'Caption Copywriting', 'Monthly Performance Reports'],
   },
