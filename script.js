@@ -456,7 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const keyInput = contactForm.querySelector('input[name="access_key"]');
-            const accessKey = (keyInput && keyInput.value) ? keyInput.value : 'YOUR_WEB3FORMS_ACCESS_KEY';
+            const accessKey = (keyInput && keyInput.value) ? keyInput.value : '0c8537d2-4a1a-4584-9775-4e49d65f256f';
 
             try {
                 const response = await fetch('https://api.web3forms.com/submit', {

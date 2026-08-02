@@ -29,7 +29,7 @@ export default function Contact() {
     setBtnText('Sending...');
     setErrorMessage('');
 
-    const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY';
+    const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || '0c8537d2-4a1a-4584-9775-4e49d65f256f';
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
