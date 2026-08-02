@@ -26,11 +26,25 @@ document.addEventListener('DOMContentLoaded', () => {
             infinite: false
         });
 
-        function raf(time) {
-            lenis.raf(time);
+        // Wire Lenis into GSAP's single RAF loop — avoids double-frame jank
+        if (typeof gsap !== 'undefined') {
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+        } else {
+            // Fallback if GSAP not loaded
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
             requestAnimationFrame(raf);
         }
-        requestAnimationFrame(raf);
+
+        // Keep ScrollTrigger in sync with Lenis scroll position
+        if (typeof ScrollTrigger !== 'undefined') {
+            lenis.on('scroll', ScrollTrigger.update);
+        }
     }
 
     /* --------------------------------------------------------------------------

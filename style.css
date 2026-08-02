@@ -7,38 +7,46 @@
    1. DESIGN TOKENS & CSS VARIABLES
    -------------------------------------------------------------------------- */
 :root {
-    /* Rich Luxury Color Palette */
-    --bg-obsidian:       #08090B;
-    --bg-surface:        #0E1014;
-    --bg-card:           rgba(18, 20, 26, 0.75);
-    --bg-card-hover:     rgba(28, 31, 40, 0.85);
-    --bg-glass:          rgba(255, 255, 255, 0.03);
+    /* Bright White & Soft Background Palette */
+    --bg-obsidian:       #FDFAF7;
+    --bg-surface:        #FFF8F5;
+    --bg-card:           rgba(255, 255, 255, 0.85);
+    --bg-card-hover:     rgba(255, 248, 245, 0.95);
+    --bg-glass:          rgba(255, 255, 255, 0.6);
 
     /* Metallic Liquid Gold Spectrum */
-    --gold-primary:      #D4AF37;
-    --gold-light:        #F4D068;
-    --gold-bright:       #FFF2C2;
+    --gold-primary:      #C9A84C;
+    --gold-light:        #D4AF37;
+    --gold-bright:       #B8860B;
     --gold-dark:         #997A15;
-    --gold-pale:         rgba(212, 175, 55, 0.08);
-    --gold-glow:         rgba(212, 175, 55, 0.22);
+    --gold-pale:         rgba(212, 175, 55, 0.10);
+    --gold-glow:         rgba(212, 175, 55, 0.20);
     --gold-gradient:     linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #A8821F 100%);
-    --gold-gradient-soft:linear-gradient(135deg, rgba(243,229,171,0.2) 0%, rgba(212,175,55,0.1) 100%);
+    --gold-gradient-soft:linear-gradient(135deg, rgba(243,229,171,0.25) 0%, rgba(212,175,55,0.12) 100%);
+
+    /* Baby Pink Palette */
+    --pink-primary:      #F4BFBF;
+    --pink-light:        #FDE8E8;
+    --pink-soft:         #FAD7D7;
+    --pink-pale:         rgba(244, 191, 191, 0.15);
+    --pink-glow:         rgba(244, 191, 191, 0.30);
 
     /* Typography Color Token Scale */
-    --text-primary:      #FAF8F5;
-    --text-secondary:    #A3A8B5;
-    --text-muted:        #6C7280;
-    --text-gold:         #E5C365;
+    --text-primary:      #1A1208;
+    --text-secondary:    #5A4A35;
+    --text-muted:        #9C8870;
+    --text-gold:         #C9A84C;
 
     /* Borders & Dividers */
-    --border-subtle:     rgba(212, 175, 55, 0.12);
-    --border-gold:       rgba(212, 175, 55, 0.35);
-    --border-gold-bright:rgba(244, 208, 104, 0.7);
+    --border-subtle:     rgba(212, 175, 55, 0.18);
+    --border-gold:       rgba(212, 175, 55, 0.40);
+    --border-gold-bright:rgba(244, 208, 104, 0.80);
+    --border-pink:       rgba(244, 191, 191, 0.45);
 
     /* Fonts */
-    --font-serif:        'Playfair Display', Georgia, 'Times New Roman', serif;
-    --font-fashion:      'Italiana', 'Playfair Display', serif;
-    --font-sans:         'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-serif:        'Poppins', system-ui, sans-serif;
+    --font-fashion:      'Poppins', system-ui, sans-serif;
+    --font-sans:         'IBM Plex Sans', system-ui, -apple-system, sans-serif;
 
     /* Spacing & Container */
     --container-max:     1280px;
@@ -84,7 +92,7 @@ body {
 
 /* Custom Selection */
 ::selection {
-    background: var(--gold-primary);
+    background: var(--pink-primary);
     color: var(--bg-obsidian);
 }
 
@@ -96,7 +104,7 @@ body {
     background: var(--bg-obsidian);
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--gold-dark);
+    background: var(--pink-primary);
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -160,24 +168,25 @@ ul, ol {
 
 /* Ambient Background Glows */
 .ambient-glow {
-    position: absolute;
+    position: fixed;
     border-radius: 50%;
-    filter: blur(140px);
+    filter: blur(80px);
     pointer-events: none;
     z-index: 0;
-    opacity: 0.45;
+    opacity: 0.5;
+    will-change: transform;
 }
 
 .ambient-glow--gold {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(212,175,55,0.25) 0%, rgba(0,0,0,0) 70%);
+    background: radial-gradient(circle, rgba(212,175,55,0.18) 0%, rgba(255,255,255,0) 70%);
 }
 
 .ambient-glow--dark {
     width: 700px;
     height: 700px;
-    background: radial-gradient(circle, rgba(153,122,21,0.18) 0%, rgba(0,0,0,0) 70%);
+    background: radial-gradient(circle, rgba(244,191,191,0.25) 0%, rgba(255,255,255,0) 70%);
 }
 
 /* --------------------------------------------------------------------------
@@ -230,7 +239,7 @@ ul, ol {
 
 .section-title em {
     font-family: var(--font-fashion);
-    font-style: italic;
+    font-style: normal;
     font-weight: 400;
     color: var(--gold-light);
 }
@@ -292,7 +301,7 @@ ul, ol {
 /* Primary Gold Liquid Shimmer Button */
 .btn--gold {
     background: var(--gold-gradient);
-    color: var(--bg-obsidian);
+    color: #3A2800;
     box-shadow: 0 4px 25px var(--gold-glow);
     border: 1px solid var(--gold-bright);
 }
@@ -301,7 +310,7 @@ ul, ol {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #FFF2C2 0%, #F4D068 100%);
+    background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 100%);
     opacity: 0;
     transition: opacity var(--trans-base);
     z-index: -1;
@@ -310,7 +319,7 @@ ul, ol {
 .btn--gold:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 35px rgba(212, 175, 55, 0.45);
-    color: var(--bg-obsidian);
+    color: #3A2800;
 }
 
 .btn--gold:hover::before {
@@ -337,7 +346,7 @@ ul, ol {
 
 .btn--outline:hover {
     border-color: var(--gold-primary);
-    color: var(--gold-bright);
+    color: var(--gold-primary);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(212,175,55,0.15);
 }
@@ -370,16 +379,16 @@ ul, ol {
     height: var(--nav-height);
     z-index: 1000;
     transition: all var(--trans-base);
-    background: rgba(8, 9, 11, 0.7);
+    background: rgba(253, 250, 247, 0.85);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+    border-bottom: 1px solid var(--border-pink);
 }
 
 .header.is-scrolled {
-    background: rgba(8, 9, 11, 0.92);
+    background: rgba(253, 250, 247, 0.97);
     border-bottom-color: var(--border-gold);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.12);
 }
 
 .header__inner {
@@ -454,7 +463,7 @@ ul, ol {
 
 .header__nav-link:hover,
 .header__nav-link.is-active {
-    color: var(--gold-bright);
+    color: var(--gold-primary);
 }
 
 .header__nav-link:hover::after,
@@ -507,7 +516,7 @@ ul, ol {
     position: fixed;
     inset: 0;
     z-index: 999;
-    background: rgba(8, 9, 11, 0.98);
+    background: rgba(253, 250, 247, 0.98);
     backdrop-filter: blur(25px);
     display: flex;
     flex-direction: column;
@@ -604,9 +613,10 @@ ul, ol {
 
 .hero__title {
     font-family: var(--font-serif);
-    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
-    font-weight: 400;
-    line-height: 1.08;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    max-width: 600px;
+    font-weight: 600;
+    line-height: 1.1;
     color: var(--text-primary);
     margin-bottom: 1.5rem;
     letter-spacing: -0.01em;
@@ -614,8 +624,8 @@ ul, ol {
 
 .hero__title .line-italic {
     font-family: var(--font-fashion);
-    font-style: italic;
-    color: var(--gold-light);
+    font-style: normal;
+    color: var(--gold-primary);
 }
 
 .hero__description {
@@ -640,7 +650,7 @@ ul, ol {
     align-items: center;
     gap: 2.5rem;
     padding-top: 2rem;
-    border-top: 1px solid var(--border-subtle);
+    border-top: 1px solid var(--border-pink);
     width: 100%;
 }
 
@@ -678,8 +688,8 @@ ul, ol {
     aspect-ratio: 4 / 5;
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid var(--border-gold);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px var(--gold-glow);
+    border: 1px solid var(--border-pink);
+    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.12), 0 0 40px var(--pink-glow);
     z-index: 2;
 }
 
@@ -699,9 +709,9 @@ ul, ol {
 .hero__image-frame-border {
     position: absolute;
     inset: -15px;
-    border: 1px solid var(--gold-primary);
+    border: 1px solid var(--pink-primary);
     border-radius: 16px;
-    opacity: 0.35;
+    opacity: 0.50;
     pointer-events: none;
     z-index: 1;
 }
@@ -711,24 +721,24 @@ ul, ol {
     position: absolute;
     bottom: -20px;
     left: -30px;
-    background: var(--bg-card);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
-    border: 1px solid var(--border-gold);
+    border: 1px solid var(--border-pink);
     border-radius: 8px;
     padding: 1rem 1.4rem;
     display: flex;
     align-items: center;
     gap: 14px;
     z-index: 3;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 30px rgba(244, 191, 191, 0.25);
 }
 
 .hero__floating-tag-icon {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: var(--gold-pale);
-    border: 1px solid var(--gold-primary);
+    background: var(--pink-pale);
+    border: 1px solid var(--pink-primary);
     color: var(--gold-primary);
     display: flex;
     align-items: center;
@@ -752,9 +762,9 @@ ul, ol {
    -------------------------------------------------------------------------- */
 .marquee {
     padding: 1.2rem 0;
-    background: var(--bg-surface);
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
+    background: var(--pink-light);
+    border-top: 1px solid var(--border-pink);
+    border-bottom: 1px solid var(--border-pink);
     overflow: hidden;
     position: relative;
 }
@@ -877,9 +887,9 @@ ul, ol {
 .about__quote {
     font-family: var(--font-serif);
     font-size: 1.35rem;
-    font-style: italic;
-    color: var(--gold-light);
-    border-left: 2px solid var(--gold-primary);
+    font-style: normal;
+    color: var(--gold-primary);
+    border-left: 3px solid var(--pink-primary);
     padding-left: 1.5rem;
     margin-top: 1rem;
 }
@@ -897,19 +907,20 @@ ul, ol {
     align-items: center;
     gap: 10px;
     padding: 0.75rem 1rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
+    background: #FFFFFF;
+    border: 1px solid var(--border-pink);
     border-radius: 6px;
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--text-primary);
     transition: all var(--trans-fast);
+    box-shadow: 0 2px 8px rgba(244, 191, 191, 0.12);
 }
 
 .tool-chip:hover {
     border-color: var(--gold-primary);
     background: var(--gold-pale);
-    color: var(--gold-bright);
+    color: var(--gold-primary);
     transform: translateY(-2px);
 }
 
@@ -918,7 +929,7 @@ ul, ol {
    -------------------------------------------------------------------------- */
 .services {
     padding: 8rem 0;
-    background: var(--bg-surface);
+    background: var(--pink-light);
     position: relative;
 }
 
@@ -930,9 +941,9 @@ ul, ol {
 }
 
 .service-card {
-    background: var(--bg-card);
+    background: #FFFFFF;
     backdrop-filter: blur(12px);
-    border: 1px solid var(--border-subtle);
+    border: 1px solid var(--border-pink);
     border-radius: 12px;
     padding: 3rem 2.2rem;
     display: flex;
@@ -940,6 +951,7 @@ ul, ol {
     transition: all var(--trans-base);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 16px rgba(244, 191, 191, 0.10);
 }
 
 .service-card::before {
@@ -957,8 +969,8 @@ ul, ol {
 
 .service-card:hover {
     transform: translateY(-8px);
-    border-color: var(--border-gold);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px var(--gold-glow);
+    border-color: var(--pink-primary);
+    box-shadow: 0 20px 40px rgba(244, 191, 191, 0.20), 0 0 25px var(--gold-glow);
 }
 
 .service-card:hover::before {
@@ -1182,8 +1194,8 @@ ul, ol {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid var(--border-subtle);
-    background: var(--bg-card);
+    border: 1px solid var(--border-pink);
+    background: #FFFFFF;
     cursor: pointer;
     transition: transform var(--trans-base), border-color var(--trans-base), box-shadow var(--trans-base);
 }
@@ -1191,7 +1203,7 @@ ul, ol {
 .work-card:hover {
     transform: translateY(-8px);
     border-color: var(--gold-primary);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 30px var(--gold-glow);
+    box-shadow: 0 20px 45px rgba(244, 191, 191, 0.30), 0 0 30px var(--gold-glow);
 }
 
 .work-card__image-wrap {
@@ -1216,7 +1228,7 @@ ul, ol {
 .work-card__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(8, 9, 11, 0.95) 0%, rgba(8, 9, 11, 0.3) 60%, transparent 100%);
+    background: linear-gradient(to top, rgba(26, 18, 8, 0.92) 0%, rgba(26, 18, 8, 0.25) 60%, transparent 100%);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -1260,7 +1272,7 @@ ul, ol {
     position: fixed;
     inset: 0;
     z-index: 10000;
-    background: rgba(8, 9, 11, 0.92);
+    background: rgba(253, 250, 247, 0.90);
     backdrop-filter: blur(25px);
     display: flex;
     align-items: center;
@@ -1277,14 +1289,14 @@ ul, ol {
 }
 
 .modal__content {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-gold);
+    background: #FFFFFF;
+    border: 1px solid var(--border-pink);
     border-radius: 16px;
     width: min(900px, 95vw);
     max-height: 88vh;
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 50px var(--gold-glow);
+    box-shadow: 0 30px 80px rgba(244, 191, 191, 0.25), 0 0 50px var(--gold-glow);
     padding: 3.5rem;
     transform: translateY(30px);
     transition: transform 0.4s var(--ease-out-expo);
@@ -1343,7 +1355,7 @@ ul, ol {
    -------------------------------------------------------------------------- */
 .testimonials {
     padding: 8rem 0;
-    background: var(--bg-surface);
+    background: var(--bg-obsidian);
     position: relative;
 }
 
@@ -1354,20 +1366,21 @@ ul, ol {
 }
 
 .testimonial-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
+    background: #FFFFFF;
+    border: 1px solid var(--border-pink);
     border-radius: 12px;
     padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: all var(--trans-base);
+    box-shadow: 0 2px 12px rgba(244, 191, 191, 0.10);
 }
 
 .testimonial-card:hover {
-    border-color: var(--border-gold);
+    border-color: var(--pink-primary);
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 35px rgba(244, 191, 191, 0.20);
 }
 
 .testimonial-card__stars {
@@ -1380,7 +1393,7 @@ ul, ol {
 .testimonial-card__text {
     font-family: var(--font-serif);
     font-size: 1.1rem;
-    font-style: italic;
+    font-style: normal;
     color: var(--text-secondary);
     line-height: 1.8;
     margin-bottom: 2rem;
@@ -1460,12 +1473,12 @@ ul, ol {
 }
 
 .form-card {
-    background: var(--bg-card);
+    background: #FFFFFF;
     backdrop-filter: blur(20px);
-    border: 1px solid var(--border-gold);
+    border: 1px solid var(--border-pink);
     border-radius: 16px;
     padding: 3rem;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 8px 40px rgba(244, 191, 191, 0.15);
 }
 
 .form-group {
@@ -1488,8 +1501,8 @@ ul, ol {
 .form-group textarea {
     width: 100%;
     padding: 1rem 1.25rem;
-    background: rgba(8, 9, 11, 0.7);
-    border: 1.5px solid var(--border-subtle);
+    background: var(--bg-obsidian);
+    border: 1.5px solid var(--border-pink);
     border-radius: 8px;
     color: var(--text-primary);
     font-family: inherit;
@@ -1502,7 +1515,7 @@ ul, ol {
 .form-group select:focus,
 .form-group textarea:focus {
     border-color: var(--gold-primary);
-    box-shadow: 0 0 15px var(--gold-glow);
+    box-shadow: 0 0 12px var(--pink-glow);
 }
 
 .form-row {
@@ -1544,8 +1557,8 @@ ul, ol {
    14. FOOTER
    -------------------------------------------------------------------------- */
 .footer {
-    background: var(--bg-surface);
-    border-top: 1px solid var(--border-subtle);
+    background: var(--pink-light);
+    border-top: 1px solid var(--border-pink);
     padding: 4rem 0 2rem;
 }
 
