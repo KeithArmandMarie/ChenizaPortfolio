@@ -7,9 +7,9 @@ const tabs = ['story', 'philosophy', 'tools'] as const;
 type Tab = typeof tabs[number];
 
 const tabLabels: Record<Tab, string> = {
-  story: 'My Story',
-  philosophy: 'Philosophy',
-  tools: 'Tools & Tech',
+  story: 'My Background',
+  philosophy: 'Approach & Value',
+  tools: 'Toolkit & Tech',
 };
 
 const tools = [
@@ -32,23 +32,23 @@ export default function About() {
   const [activeTab, setActiveTab] = useState<Tab>('story');
 
   return (
-    <section className="py-32 relative" id="about">
+    <section className="py-32 relative bg-[#FFF8FA]" id="about">
       <div className="max-w-[1280px] mx-auto px-[clamp(1.5rem,5vw,3.5rem)]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Media */}
           <motion.div {...scrollReveal}>
             <div className="relative max-w-[480px]">
-              <div className="aspect-[4/5] rounded-xl overflow-hidden border border-[rgba(212,175,55,0.35)] shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-[rgba(248,200,220,0.8)] shadow-[0_15px_40px_rgba(248,200,220,0.35)] bg-white">
                 <img
                   src="/images/portrait-about.jpg"
-                  alt="Cheniza Kate in an editorial setting"
+                  alt="Cheniza Kate — Recent Graduate & Digital Strategist"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
               {/* Gold accent block */}
-              <div className="absolute bottom-[-16px] right-[-16px] w-24 h-24 border border-gold-primary rounded-xl opacity-40" />
+              <div className="absolute bottom-[-16px] right-[-16px] w-24 h-24 border border-[rgba(212,175,55,0.4)] rounded-2xl opacity-60 pointer-events-none" />
             </div>
           </motion.div>
 
@@ -58,23 +58,23 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="section-tag">About Cheniza</span>
-            <h2 className="font-poppins text-[clamp(2.2rem,4.5vw,3.8rem)] font-bold leading-[1.15] text-text-primary mb-8">
-              Glam in the Details. <br />
-              <span className="text-gold-gradient italic font-light">Precision in Strategy.</span>
+            <h2 className="font-poppins text-[clamp(2.1rem,4vw,3.4rem)] font-bold leading-[1.18] text-text-primary mb-6">
+              Fresh Academic Rigor. <br />
+              <span className="text-gold-gradient font-bold">Uncompromising Design Quality.</span>
             </h2>
 
             {/* Tab Buttons */}
-            <div className="flex gap-1 mb-8 p-1 rounded-lg bg-[rgba(255,255,255,0.03)] border border-[rgba(212,175,55,0.12)] w-fit">
+            <div className="flex gap-1.5 mb-8 p-1.5 rounded-xl bg-white border border-[rgba(248,200,220,0.8)] w-fit shadow-sm">
               {tabs.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`px-5 py-2 rounded-md text-[0.8rem] font-semibold tracking-wide transition-all duration-300 font-poppins ${
+                  className={`px-5 py-2.5 rounded-lg text-[0.8rem] font-semibold tracking-wide transition-all duration-300 font-poppins ${
                     activeTab === tab
-                      ? 'bg-gold-gradient text-[#08090B] shadow-sm'
+                      ? 'text-[#1F1A24] shadow-sm'
                       : 'text-text-secondary hover:text-text-primary'
                   }`}
-                  style={activeTab === tab ? { background: 'linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #A8821F 100%)' } : {}}
+                  style={activeTab === tab ? { background: 'linear-gradient(135deg, #F8C8DC 0%, #D4AF37 50%, #C5A059 100%)' } : {}}
                 >
                   {tabLabels[tab]}
                 </button>
@@ -86,13 +86,13 @@ export default function About() {
               {activeTab === 'story' && (
                 <motion.div key="story" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
                   <p className="font-ibm text-text-secondary leading-[1.8] mb-4">
-                    I'm Cheniza Kate — a brand right-hand, social strategist, and visual designer dedicated to founders and agencies who demand their digital presence feel as luxurious as their offer.
+                    I'm Cheniza Kate — a recent Digital Communication & Visual Arts graduate equipped with cutting-edge design training, strategic content frameworks, and a drive to build memorable online presences.
                   </p>
                   <p className="font-ibm text-text-secondary leading-[1.8] mb-4">
-                    Over the past 3+ years, I've partnered directly with boutique founders and behind-the-scenes with agencies managing high-touch client rosters. My work bridges aesthetic storytelling with structured backend organization.
+                    Whether assisting direct brand founders with complete Instagram management or providing reliable white-label fulfillment for creative agencies, I combine fresh creative vision with dependable execution.
                   </p>
-                  <blockquote className="border-l-2 border-gold-primary pl-5 mt-4 font-poppins italic text-text-secondary text-[0.95rem] leading-relaxed">
-                    "Posting isn't enough. We build presence, authority, and emotional connection."
+                  <blockquote className="border-l-2 border-gold-primary pl-5 mt-4 font-poppins font-normal text-text-primary text-[0.95rem] leading-relaxed">
+                    "Every asset should communicate brand prestige and convert attention into meaningful client action."
                   </blockquote>
                 </motion.div>
               )}
@@ -100,10 +100,10 @@ export default function About() {
               {activeTab === 'philosophy' && (
                 <motion.div key="philosophy" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
                   <p className="font-ibm text-text-secondary leading-[1.8] mb-4">
-                    Every brand has a distinct frequency. My goal is to capture that unique essence and translate it into high-converting visual systems, cohesive feeds, and seamless operational workflows.
+                    I approach every project with structured intent. For direct clients, I curate cohesive visual identities and engaging social content. For agencies, I serve as a seamless backend extension—delivering polished assets strictly on schedule.
                   </p>
                   <p className="font-ibm text-text-secondary leading-[1.8]">
-                    Whether taking complete ownership of a founder's Instagram or delivering white-label assets for agency partners, reliability and premium finish are non-negotiable.
+                    Clear communication, rapid turnaround times, and flawless execution are the cornerstones of my work.
                   </p>
                 </motion.div>
               )}
@@ -117,7 +117,7 @@ export default function About() {
                     {tools.map(({ label, icon }) => (
                       <div
                         key={label}
-                        className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg bg-[rgba(255,255,255,0.04)] border border-[rgba(212,175,55,0.15)] text-[0.85rem] text-text-secondary font-ibm hover:border-gold-primary hover:text-gold-light transition-all duration-300"
+                        className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg bg-white border border-[rgba(248,200,220,0.8)] text-[0.85rem] text-text-primary font-ibm hover:border-gold-primary transition-all duration-300 shadow-sm"
                       >
                         <span className="text-gold-primary">{icon}</span>
                         {label}
@@ -130,10 +130,10 @@ export default function About() {
 
             <a
               href="#contact"
-              className="mt-8 inline-flex items-center gap-2.5 px-8 py-4 rounded-[4px] font-poppins text-[0.8rem] font-bold tracking-[0.14em] uppercase text-[#08090B] shadow-[0_4px_25px_rgba(212,175,55,0.22)] border border-[#FFF2C2] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_10px_35px_rgba(212,175,55,0.45)]"
-              style={{ background: 'linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #A8821F 100%)' }}
+              className="mt-8 inline-flex items-center gap-2.5 px-8 py-4 rounded-[6px] font-poppins text-[0.8rem] font-bold tracking-[0.14em] uppercase text-[#1F1A24] shadow-[0_4px_20px_rgba(248,200,220,0.4)] border border-[rgba(248,200,220,0.9)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(248,200,220,0.6)]"
+              style={{ background: 'linear-gradient(135deg, #F8C8DC 0%, #D4AF37 50%, #C5A059 100%)' }}
             >
-              Inquire For Availability
+              Get In Touch ✦
             </a>
           </motion.div>
 

@@ -1,16 +1,16 @@
 ---
-// Header — sticky glassmorphism nav
+// Header — sticky glassmorphism nav (White, Gold & Baby Pink theme)
 ---
 
 <header
-  class="fixed top-0 left-0 right-0 h-[84px] z-[1000] transition-all duration-500 bg-[rgba(8,9,11,0.7)] backdrop-blur-[18px] border-b border-[rgba(212,175,55,0.08)]"
+  class="fixed top-0 left-0 right-0 h-[84px] z-[1000] transition-all duration-500 bg-[rgba(255,255,255,0.85)] backdrop-blur-[18px] border-b border-[rgba(248,200,220,0.6)]"
   id="header"
 >
   <div class="max-w-[1280px] mx-auto px-[clamp(1.5rem,5vw,3.5rem)] h-full flex items-center justify-between relative z-10">
 
     <!-- Logo -->
     <a href="#hero" class="flex items-center gap-3 group" aria-label="Cheniza Kate Home">
-      <div class="w-9 h-9 rounded-full border border-gold-primary flex items-center justify-center font-poppins font-semibold text-[1.05rem] text-gold-primary bg-[rgba(212,175,55,0.08)] shadow-[0_0_15px_rgba(212,175,55,0.22)] transition-transform duration-500 group-hover:rotate-[360deg]">
+      <div class="w-9 h-9 rounded-full border border-gold-primary flex items-center justify-center font-poppins font-semibold text-[1.05rem] text-gold-primary bg-[#FFF0F5] shadow-[0_2px_10px_rgba(248,200,220,0.5)] transition-transform duration-500 group-hover:rotate-[360deg]">
         CK
       </div>
       <span class="font-poppins text-[1.3rem] font-semibold tracking-wide text-text-primary">
@@ -20,12 +20,12 @@
 
     <!-- Desktop Nav -->
     <nav class="hidden md:flex items-center gap-10" aria-label="Main Navigation">
-      {['About', 'Services & Estimator', 'Selected Work', 'Client Praise', 'Contact'].map((label, i) => {
+      {['About', 'Services', 'Selected Work', 'Client Praise', 'Contact'].map((label, i) => {
         const hrefs = ['#about', '#services', '#work', '#testimonials', '#contact'];
         return (
           <a
             href={hrefs[i]}
-            class="text-[0.85rem] font-semibold tracking-[0.06em] text-text-secondary hover:text-gold-bright transition-colors duration-200 relative py-1.5 nav-link"
+            class="text-[0.85rem] font-semibold tracking-[0.06em] text-text-secondary hover:text-gold-primary transition-colors duration-200 relative py-1.5 nav-link"
           >
             {label}
           </a>
@@ -35,8 +35,8 @@
 
     <!-- CTA -->
     <div class="hidden md:flex items-center gap-6">
-      <a href="#contact" class="btn-gold text-[0.8rem] font-bold tracking-[0.14em] uppercase px-8 py-4 rounded-[4px]">
-        Book a Strategy Call
+      <a href="#contact" class="btn-gold text-[0.8rem] font-bold tracking-[0.14em] uppercase px-7 py-3.5 rounded-[6px]">
+        Book a Discovery Call
       </a>
     </div>
 
@@ -60,10 +60,10 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #A8821F 100%);
-    color: #08090B;
-    box-shadow: 0 4px 25px rgba(212, 175, 55, 0.22);
-    border: 1px solid #FFF2C2;
+    background: linear-gradient(135deg, #F8C8DC 0%, #D4AF37 50%, #C5A059 100%);
+    color: #1F1A24;
+    box-shadow: 0 4px 20px rgba(248, 200, 220, 0.4), 0 2px 10px rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(248, 200, 220, 0.8);
     overflow: hidden;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -72,15 +72,15 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #FFF2C2 0%, #F4D068 100%);
+    background: linear-gradient(135deg, #FFF0F5 0%, #F8C8DC 100%);
     opacity: 0;
     transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: -1;
   }
   .btn-gold:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 35px rgba(212, 175, 55, 0.45);
-    color: #08090B;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(248, 200, 220, 0.6), 0 4px 15px rgba(212, 175, 55, 0.3);
+    color: #1F1A24;
   }
   .btn-gold:hover::before { opacity: 1; }
 
@@ -91,7 +91,7 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #A8821F 100%);
+    background: linear-gradient(135deg, #F8C8DC 0%, #D4AF37 100%);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -102,9 +102,9 @@
   }
 
   #header.is-scrolled {
-    background: rgba(8, 9, 11, 0.92);
-    border-bottom-color: rgba(212, 175, 55, 0.35);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px rgba(248, 200, 220, 0.2);
   }
 </style>
 

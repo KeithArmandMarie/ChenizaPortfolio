@@ -4,7 +4,7 @@
 
 /* ============================================================
    CHENIZA KATE — GLOBAL BASE STYLES
-   Poppins + IBM Plex Sans | Gold Luxury Dark Theme
+   Poppins + IBM Plex Sans | White Theme (Gold & Baby Pink Palette)
    ============================================================ */
 
 @layer base {
@@ -17,8 +17,8 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 84px;
-    background-color: #08090B;
-    color: #FAF8F5;
+    background-color: #FFFFFF;
+    color: #1F1A24;
     font-family: 'Poppins', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -26,8 +26,8 @@
   }
 
   body {
-    background-color: #08090B;
-    color: #FAF8F5;
+    background-color: #FFFFFF;
+    color: #1F1A24;
     font-size: 1rem;
     line-height: 1.7;
     position: relative;
@@ -35,8 +35,8 @@
   }
 
   ::selection {
-    background: #D4AF37;
-    color: #08090B;
+    background: #F8C8DC;
+    color: #1F1A24;
   }
 
   img, video {
@@ -69,10 +69,10 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #08090B;
+  background: #FFF5F8;
 }
 ::-webkit-scrollbar-thumb {
-  background: #997A15;
+  background: #F8C8DC;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -92,7 +92,7 @@
   transform: translate(-50%, -50%);
   z-index: 9999;
   transition: transform 0.15s ease-out, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
-  mix-blend-mode: difference;
+  background-color: rgba(248, 200, 220, 0.25);
   display: none;
 }
 
@@ -100,7 +100,7 @@
   position: fixed;
   width: 6px;
   height: 6px;
-  background: #F4D068;
+  background: #D4AF37;
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -116,7 +116,7 @@
 }
 
 /* ============================================================
-   AMBIENT BACKGROUND GLOWS
+   AMBIENT BACKGROUND GLOWS — BABY PINK & GOLD
    ============================================================ */
 .ambient-glow {
   position: absolute;
@@ -124,30 +124,31 @@
   filter: blur(140px);
   pointer-events: none;
   z-index: 0;
-  opacity: 0.45;
+  opacity: 0.55;
 }
 
 .ambient-glow--gold {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(212,175,55,0.25) 0%, rgba(0,0,0,0) 70%);
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(212,175,55,0.2) 0%, rgba(255,255,255,0) 70%);
 }
 
 .ambient-glow--dark {
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(153,122,21,0.18) 0%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(circle, rgba(248,200,220,0.35) 0%, rgba(255,255,255,0) 70%);
 }
 
 /* ============================================================
-   GOLD GRADIENT TEXT
+   GOLD & BABY PINK GRADIENT TEXT
    ============================================================ */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #A8821F 100%);
+  background: linear-gradient(135deg, #F8C8DC 0%, #D4AF37 50%, #C5A059 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: inline-block;
+  font-style: normal !important;
 }
 
 /* ============================================================
@@ -161,7 +162,7 @@
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #D4AF37;
+  color: #C5A059;
   margin-bottom: 1rem;
   font-family: 'IBM Plex Sans', sans-serif;
 }
@@ -171,7 +172,7 @@
   display: inline-block;
   width: 24px;
   height: 1px;
-  background: #D4AF37;
+  background: #F8C8DC;
 }
 
 .section-tag--center::before {
@@ -195,7 +196,7 @@
 }
 
 /* ============================================================
-   PULSE GLOW (availability dot)
+   PULSE GLOW
    ============================================================ */
 @keyframes pulseGlow {
   0%, 100% { transform: scale(1); opacity: 1; }
@@ -207,26 +208,26 @@
 }
 
 /* ============================================================
-   GOLD DIVIDER
+   GOLD & PINK DIVIDER
    ============================================================ */
 .gold-divider {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.35) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(248, 200, 220, 0.7) 30%, rgba(212, 175, 55, 0.6) 70%, transparent 100%);
   border: none;
   margin: 0;
 }
 
 /* ============================================================
-   FORM ELEMENTS — DARK LUXURY STYLE
+   FORM ELEMENTS — LIGHT BLUSH LUXURY STYLE
    ============================================================ */
 .form-input {
   width: 100%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: #FFF8FA;
+  border: 1px solid rgba(248, 200, 220, 0.8);
   border-radius: 6px;
   padding: 0.875rem 1.1rem;
-  color: #FAF8F5;
+  color: #1F1A24;
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.9rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
@@ -234,13 +235,13 @@
 }
 
 .form-input::placeholder {
-  color: #6C7280;
+  color: #8C7E91;
 }
 
 .form-input:focus {
   border-color: #D4AF37;
-  background: rgba(212, 175, 55, 0.05);
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(248, 200, 220, 0.4);
 }
 
 .form-label {
@@ -249,7 +250,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #A3A8B5;
+  color: #5A4E5E;
   margin-bottom: 0.5rem;
   font-family: 'IBM Plex Sans', sans-serif;
 }
@@ -261,10 +262,10 @@
   font-family: 'Poppins', sans-serif;
   font-size: 2.2rem;
   font-weight: 600;
-  color: #FAF8F5;
+  color: #1F1A24;
   transition: color 0.2s ease;
 }
 
 .mobile-nav-link:hover {
-  color: #D4AF37;
+  color: #C5A059;
 }

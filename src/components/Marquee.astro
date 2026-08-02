@@ -1,24 +1,24 @@
 ---
-// Marquee / Ticker — infinite scrolling gold strip
+// Marquee / Ticker — infinite scrolling strip (White, Gold & Baby Pink theme)
 ---
 
-<div class="marquee-wrap py-5 bg-[#0E1014] border-t border-b border-[rgba(212,175,55,0.12)] overflow-hidden" aria-hidden="true">
+<div class="marquee-wrap py-5 bg-[#FFF0F5] border-t border-b border-[rgba(248,200,220,0.8)] overflow-hidden" aria-hidden="true">
   <div class="marquee-track flex items-center gap-12 whitespace-nowrap">
     {[
       'Social Media Management',
-      'High-Fashion Visual Design',
-      'Executive Virtual Assistance',
-      'Content Strategy & Curation',
+      'Editorial Visual Design',
+      'Direct Brand Solutions',
       'Agency White-Label Partner',
+      'Content Strategy & Curation',
       'Social Media Management',
-      'High-Fashion Visual Design',
-      'Executive Virtual Assistance',
-      'Content Strategy & Curation',
+      'Editorial Visual Design',
+      'Direct Brand Solutions',
       'Agency White-Label Partner',
+      'Content Strategy & Curation',
     ].map((text, i) => (
-      <div class="flex items-center gap-12 font-poppins text-[1.1rem] tracking-[0.08em] text-text-secondary uppercase">
+      <div class="flex items-center gap-12 font-poppins text-[1.05rem] font-medium tracking-[0.08em] text-text-primary uppercase">
         <span>{text}</span>
-        <span class="text-gold-primary text-[0.9rem]">✦</span>
+        <span class="text-gold-primary text-[0.95rem]">✦</span>
       </div>
     ))}
   </div>
