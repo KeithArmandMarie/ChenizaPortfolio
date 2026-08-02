@@ -21,21 +21,50 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [errorMessage, setErrorMessage] = useState<string>('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState('submitting');
     setBtnText('Sending...');
+    setErrorMessage('');
 
-    // Construct mailto link
-    const subject = encodeURIComponent(`New Portfolio Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nClient Type: ${formData.clientType}\nService: ${formData.service}\n\nProject Details:\n${formData.message}`
-    );
-    
-    setTimeout(() => {
-      setFormState('success');
-      window.location.href = `mailto:caballerokeith2@gmail.com?subject=${subject}&body=${body}`;
-    }, 1000);
+    const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY';
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          clientType: formData.clientType,
+          service: formData.service,
+          message: formData.message,
+          subject: `New Portfolio Inquiry from ${formData.name}`,
+          from_name: 'Cheniza Portfolio',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setFormState('success');
+      } else {
+        setFormState('idle');
+        setBtnText('Submit Inquiry ✦');
+        setErrorMessage(result.message || 'Submission failed. Please verify your Web3Forms Access Key.');
+      }
+    } catch (err) {
+      console.error('Submission error:', err);
+      setFormState('idle');
+      setBtnText('Submit Inquiry ✦');
+      setErrorMessage('Network error. Please try again or email caballerokeith2@gmail.com directly.');
+    }
   };
 
   const scrollReveal = (delay = 0) => ({
@@ -185,6 +214,12 @@ export default function Contact() {
                       className="form-input resize-none"
                     />
                   </div>
+
+                  {errorMessage && (
+                    <div className="p-3 rounded-lg bg-[rgba(239,68,68,0.1)] border border-red-500/30 text-red-400 font-ibm text-xs text-center">
+                      {errorMessage}
+                    </div>
+                  )}
 
                   <motion.button
                     type="submit"

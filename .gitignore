@@ -2,3 +2,8 @@ node_modules
 .astro
 dist
 .ds_store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

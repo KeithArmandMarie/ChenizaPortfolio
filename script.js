@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn   = document.getElementById('submitBtn');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const name = document.getElementById('name')?.value || '';
@@ -455,14 +455,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.style.opacity = '0.7';
             }
 
-            const subject = encodeURIComponent(`New Inquiry from ${name}`);
-            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nClient Type: ${clientType}\nService: ${service}\n\nMessage:\n${message}`);
+            const keyInput = contactForm.querySelector('input[name="access_key"]');
+            const accessKey = (keyInput && keyInput.value) ? keyInput.value : 'YOUR_WEB3FORMS_ACCESS_KEY';
 
-            setTimeout(() => {
-                contactForm.style.display = 'none';
-                if (formSuccess) formSuccess.classList.add('is-visible');
-                window.location.href = `mailto:caballerokeith2@gmail.com?subject=${subject}&body=${body}`;
-            }, 1000);
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        access_key: accessKey,
+                        name: name,
+                        email: email,
+                        clientType: clientType,
+                        service: service,
+                        message: message,
+                        subject: `New Inquiry from ${name}`,
+                        from_name: 'Cheniza Portfolio'
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    contactForm.style.display = 'none';
+                    if (formSuccess) formSuccess.classList.add('is-visible');
+                } else {
+                    alert(result.message || 'Unable to send message. Please check your Web3Forms Access Key.');
+                    if (submitBtn) {
+                        submitBtn.innerHTML = 'Submit Inquiry ✦';
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = '1';
+                    }
+                }
+            } catch (err) {
+                console.error('Submission error:', err);
+                alert('Network error. Please try again or email caballerokeith2@gmail.com directly.');
+                if (submitBtn) {
+                    submitBtn.innerHTML = 'Submit Inquiry ✦';
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                }
+            }
         });
     }
 
