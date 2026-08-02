@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.registerPlugin(ScrollTrigger);
 
         // Hero Text Fade In
-        gsap.from('.hero__badge, .hero__title, .hero__description, .hero__actions', {
+        gsap.from('.hero__title, .hero__description, .hero__actions', {
             opacity: 0,
             y: 40,
             duration: 1,
@@ -179,7 +179,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Animated Counters
         const statValues = document.querySelectorAll('.hero__stat-value');
         statValues.forEach(stat => {
+            if (!stat.dataset.target) return;
             const targetNum = parseInt(stat.dataset.target, 10);
+            if (isNaN(targetNum)) return;
             const suffix    = stat.textContent.replace(/[0-9]/g, '');
 
             ScrollTrigger.create({
@@ -459,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 contactForm.style.display = 'none';
                 if (formSuccess) formSuccess.classList.add('is-visible');
-                window.location.href = `mailto:katecheniza1@gmail.com?subject=${subject}&body=${body}`;
+                window.location.href = `mailto:caballerokeith2@gmail.com?subject=${subject}&body=${body}`;
             }, 1000);
         });
     }

@@ -34,7 +34,7 @@ export default function Cursor() {
     };
     raf = requestAnimationFrame(animate);
 
-    const els = document.querySelectorAll('a, button, .estimator-option, article');
+    const els = document.querySelectorAll('a, button, .estimator__option-card, .estimator-option, article');
     const enter = () => {
       follower.style.transform = 'translate(-50%, -50%) scale(1.6)';
       follower.style.borderColor = '#FFF2C2';
