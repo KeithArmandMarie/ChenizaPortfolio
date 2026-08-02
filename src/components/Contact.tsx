@@ -29,7 +29,7 @@ export default function Contact() {
     setBtnText('Sending...');
     setErrorMessage('');
 
-    const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || '0c8537d2-4a1a-4584-9775-4e49d65f256f';
+    const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || '836d9618-3693-4777-a9c3-ae30499c2799';
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -63,7 +63,7 @@ export default function Contact() {
       console.error('Submission error:', err);
       setFormState('idle');
       setBtnText('Submit Inquiry ✦');
-      setErrorMessage('Network error. Please try again or email katecheniza1@gmail.com directly.');
+      setErrorMessage('Network error. Please try again or reach out directly.');
     }
   };
 
@@ -250,7 +250,7 @@ export default function Contact() {
                   </motion.div>
                   <h3 className="font-poppins text-3xl font-bold text-text-primary mb-4">Inquiry Prepared!</h3>
                   <p className="font-ibm text-text-secondary max-w-[360px] leading-[1.8] mb-4">
-                    Thank you for reaching out! Your inquiry is being sent directly to <strong className="text-gold-light">katecheniza1@gmail.com</strong>.
+                    Thank you for reaching out! Your inquiry has been sent successfully.
                   </p>
                   <p className="font-ibm text-text-muted text-[0.85rem]">
                     I will get back to you within 24 business hours.

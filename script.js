@@ -456,7 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const keyInput = contactForm.querySelector('input[name="access_key"]');
-            const accessKey = (keyInput && keyInput.value) ? keyInput.value : '0c8537d2-4a1a-4584-9775-4e49d65f256f';
+            const accessKey = (keyInput && keyInput.value) ? keyInput.value : '836d9618-3693-4777-a9c3-ae30499c2799';
 
             try {
                 const response = await fetch('https://api.web3forms.com/submit', {
@@ -492,7 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (err) {
                 console.error('Submission error:', err);
-                alert('Network error. Please try again or email katecheniza1@gmail.com directly.');
+                alert('Network error. Please try again later.');
                 if (submitBtn) {
                     submitBtn.innerHTML = 'Submit Inquiry ✦';
                     submitBtn.disabled = false;
