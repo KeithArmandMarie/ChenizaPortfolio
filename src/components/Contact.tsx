@@ -63,7 +63,7 @@ export default function Contact() {
       console.error('Submission error:', err);
       setFormState('idle');
       setBtnText('Submit Inquiry ✦');
-      setErrorMessage('Network error. Please try again or email caballerokeith2@gmail.com directly.');
+      setErrorMessage('Network error. Please try again or email katecheniza1@gmail.com directly.');
     }
   };
 
@@ -97,8 +97,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-poppins text-[0.95rem] font-semibold text-text-primary mb-0.5">Direct Email</h4>
-                  <a href="mailto:caballerokeith2@gmail.com" className="font-ibm text-[0.9rem] text-gold-primary hover:underline font-medium">
-                    caballerokeith2@gmail.com
+                  <a href="mailto:katecheniza1@gmail.com" className="font-ibm text-[0.9rem] text-gold-primary hover:underline font-medium">
+                    katecheniza1@gmail.com
                   </a>
                 </div>
               </div>
@@ -250,7 +250,7 @@ export default function Contact() {
                   </motion.div>
                   <h3 className="font-poppins text-3xl font-bold text-text-primary mb-4">Inquiry Prepared!</h3>
                   <p className="font-ibm text-text-secondary max-w-[360px] leading-[1.8] mb-4">
-                    Thank you for reaching out! Your inquiry is being sent directly to <strong className="text-gold-light">caballerokeith2@gmail.com</strong>.
+                    Thank you for reaching out! Your inquiry is being sent directly to <strong className="text-gold-light">katecheniza1@gmail.com</strong>.
                   </p>
                   <p className="font-ibm text-text-muted text-[0.85rem]">
                     I will get back to you within 24 business hours.

@@ -492,7 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (err) {
                 console.error('Submission error:', err);
-                alert('Network error. Please try again or email caballerokeith2@gmail.com directly.');
+                alert('Network error. Please try again or email katecheniza1@gmail.com directly.');
                 if (submitBtn) {
                     submitBtn.innerHTML = 'Submit Inquiry ✦';
                     submitBtn.disabled = false;
