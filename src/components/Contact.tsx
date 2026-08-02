@@ -2,19 +2,40 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { Clock, Calendar } from 'lucide-react';
+import { Clock, Calendar, Mail } from 'lucide-react';
 
 type FormState = 'idle' | 'submitting' | 'success';
 
 export default function Contact() {
   const [formState, setFormState] = useState<FormState>('idle');
   const [btnText, setBtnText] = useState('Submit Inquiry ✦');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    clientType: '',
+    service: '',
+    message: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormState('submitting');
     setBtnText('Sending...');
-    setTimeout(() => setFormState('success'), 1200);
+
+    // Construct mailto link
+    const subject = encodeURIComponent(`New Portfolio Inquiry from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nClient Type: ${formData.clientType}\nService: ${formData.service}\n\nProject Details:\n${formData.message}`
+    );
+    
+    setTimeout(() => {
+      setFormState('success');
+      window.location.href = `mailto:katecheniza1@gmail.com?subject=${subject}&body=${body}`;
+    }, 1000);
   };
 
   const scrollReveal = (delay = 0) => ({
@@ -33,30 +54,43 @@ export default function Contact() {
           <motion.div {...scrollReveal(0)}>
             <span className="section-tag">Get In Touch</span>
             <h2 className="font-poppins text-[clamp(2.2rem,4vw,3.4rem)] font-bold leading-[1.15] text-text-primary mb-5">
-              Ready to Make Your Brand <br />
-              <span className="text-gold-gradient italic font-light">The Main Character?</span>
+              Ready to Work <br />
+              <span className="text-gold-gradient font-bold">Together?</span>
             </h2>
             <p className="font-ibm text-text-secondary leading-[1.8] mb-10 max-w-[480px]">
-              Whether you need full social management, high-fashion graphic suites, or dedicated agency support — I'm here to bring your vision to life.
+              Whether you need full social media management, graphic design, or dedicated virtual assistance — I'm ready to help your brand shine online.
             </p>
 
-            <div className="space-y-5">
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-xl bg-[rgba(212,175,55,0.08)] border border-[rgba(212,175,55,0.2)] flex items-center justify-center text-gold-primary shrink-0">
+                  <Mail size={18} />
+                </div>
+                <div>
+                  <h4 className="font-poppins text-[0.95rem] font-semibold text-text-primary mb-0.5">Direct Email</h4>
+                  <a href="mailto:katecheniza1@gmail.com" className="font-ibm text-[0.9rem] text-gold-primary hover:underline font-medium">
+                    katecheniza1@gmail.com
+                  </a>
+                </div>
+              </div>
+
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 rounded-xl bg-[rgba(212,175,55,0.08)] border border-[rgba(212,175,55,0.2)] flex items-center justify-center text-gold-primary shrink-0">
                   <Clock size={18} />
                 </div>
                 <div>
                   <h4 className="font-poppins text-[0.95rem] font-semibold text-text-primary mb-0.5">Fast Response Time</h4>
-                  <p className="font-ibm text-[0.85rem] text-text-muted">Replies within 24–48 business hours.</p>
+                  <p className="font-ibm text-[0.85rem] text-text-muted">Replies within 24 business hours.</p>
                 </div>
               </div>
+
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 rounded-xl bg-[rgba(212,175,55,0.08)] border border-[rgba(212,175,55,0.2)] flex items-center justify-center text-gold-primary shrink-0">
                   <Calendar size={18} />
                 </div>
                 <div>
-                  <h4 className="font-poppins text-[0.95rem] font-semibold text-text-primary mb-0.5">Free Discovery Call</h4>
-                  <p className="font-ibm text-[0.85rem] text-text-muted">30-minute alignment call with zero commitment.</p>
+                  <h4 className="font-poppins text-[0.95rem] font-semibold text-text-primary mb-0.5">Free Discovery Chat</h4>
+                  <p className="font-ibm text-[0.85rem] text-text-muted">Let's discuss your project and goals — zero obligation.</p>
                 </div>
               </div>
             </div>
@@ -82,32 +116,60 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label htmlFor="name" className="form-label">Your Name *</label>
-                      <input type="text" id="name" required placeholder="Jane Smith" className="form-input" />
+                      <input
+                        type="text"
+                        id="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Jane Smith"
+                        className="form-input"
+                      />
                     </div>
                     <div>
                       <label htmlFor="email" className="form-label">Email Address *</label>
-                      <input type="email" id="email" required placeholder="jane@brand.com" className="form-input" />
+                      <input
+                        type="email"
+                        id="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="jane@brand.com"
+                        className="form-input"
+                      />
                     </div>
                   </div>
 
                   <div>
                     <label htmlFor="clientType" className="form-label">I Am A... *</label>
-                    <select id="clientType" required className="form-input">
+                    <select
+                      id="clientType"
+                      required
+                      value={formData.clientType}
+                      onChange={handleChange}
+                      className="form-input"
+                    >
                       <option value="" disabled>Select option</option>
-                      <option value="founder">Direct Client / Brand Founder</option>
-                      <option value="agency">Agency / White-Label Partner</option>
-                      <option value="other">Other</option>
+                      <option value="Direct Client / Brand Founder">Direct Client / Brand Founder</option>
+                      <option value="Agency / White-Label Partner">Agency / White-Label Partner</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
 
                   <div>
                     <label htmlFor="service" className="form-label">Interested Service *</label>
-                    <select id="service" required className="form-input">
+                    <select
+                      id="service"
+                      required
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="form-input"
+                    >
                       <option value="" disabled>Select service</option>
-                      <option value="smm">Social Media Management</option>
-                      <option value="design">Graphic & Visual Design</option>
-                      <option value="va">Executive VA / White-Label</option>
-                      <option value="custom">Custom Package Scope</option>
+                      <option value="Social Media Management">Social Media Management</option>
+                      <option value="Graphic & Visual Design">Graphic & Visual Design</option>
+                      <option value="Executive VA / Support">Executive VA / Support</option>
+                      <option value="Custom Scope">Custom Scope</option>
                     </select>
                   </div>
 
@@ -117,6 +179,8 @@ export default function Contact() {
                       id="message"
                       rows={4}
                       required
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder="Tell me about your brand, goals, and target start date..."
                       className="form-input resize-none"
                     />
@@ -127,7 +191,7 @@ export default function Contact() {
                     disabled={formState === 'submitting'}
                     whileHover={{ y: -2, boxShadow: '0 10px 35px rgba(212,175,55,0.45)' }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-4 rounded-lg font-poppins text-[0.8rem] font-bold tracking-[0.14em] uppercase text-[#08090B] transition-all duration-300 disabled:opacity-70"
+                    className="w-full py-4 rounded-lg font-poppins text-[0.8rem] font-bold tracking-[0.14em] uppercase text-[#08090B] transition-all duration-300 disabled:opacity-70 cursor-pointer"
                     style={{ background: 'linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #A8821F 100%)', border: '1px solid #FFF2C2' }}
                   >
                     {formState === 'submitting' ? 'Sending...' : 'Submit Inquiry ✦'}
@@ -149,9 +213,12 @@ export default function Contact() {
                   >
                     ✓
                   </motion.div>
-                  <h3 className="font-poppins text-3xl font-bold text-text-primary mb-4">Inquiry Received!</h3>
-                  <p className="font-ibm text-text-secondary max-w-[340px] leading-[1.8]">
-                    Thank you for reaching out. I'll review your details and be in touch within 24–48 hours to schedule our discovery call!
+                  <h3 className="font-poppins text-3xl font-bold text-text-primary mb-4">Inquiry Prepared!</h3>
+                  <p className="font-ibm text-text-secondary max-w-[360px] leading-[1.8] mb-4">
+                    Thank you for reaching out! Your inquiry is being sent directly to <strong className="text-gold-light">katecheniza1@gmail.com</strong>.
+                  </p>
+                  <p className="font-ibm text-text-muted text-[0.85rem]">
+                    I will get back to you within 24 business hours.
                   </p>
                 </motion.div>
               )}
@@ -163,3 +230,4 @@ export default function Contact() {
     </section>
   );
 }
+

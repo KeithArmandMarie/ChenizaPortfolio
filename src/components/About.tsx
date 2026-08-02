@@ -42,8 +42,8 @@ export default function About() {
               <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-[rgba(248,200,220,0.8)] shadow-[0_15px_40px_rgba(248,200,220,0.35)] bg-white">
                 <img
                   src="/images/portrait-about.jpg"
-                  alt="Cheniza Kate — Recent Graduate & Digital Strategist"
-                  className="w-full h-full object-cover"
+                  alt="Cheniza Kate — Bachelor of Science in Secondary Education, Cum Laude"
+                  className="w-full h-full object-cover object-top"
                   loading="lazy"
                 />
               </div>
@@ -58,10 +58,19 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="section-tag">About Cheniza</span>
-            <h2 className="font-poppins text-[clamp(2.1rem,4vw,3.4rem)] font-bold leading-[1.18] text-text-primary mb-6">
-              Fresh Academic Rigor. <br />
+            <h2 className="font-poppins text-[clamp(2.1rem,4vw,3.4rem)] font-bold leading-[1.18] text-text-primary mb-4">
+              Academic Excellence. <br />
               <span className="text-gold-gradient font-bold">Uncompromising Design Quality.</span>
             </h2>
+
+            {/* Education Honor Badge */}
+            <div className="mb-6 inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white border border-[rgba(248,200,220,0.8)] shadow-sm">
+              <span className="text-xl">🎓</span>
+              <div>
+                <div className="font-poppins font-bold text-[0.88rem] text-text-primary">Bachelor of Science in Secondary Education</div>
+                <div className="font-ibm text-[0.78rem] font-semibold text-gold-primary">Cum Laude Graduate</div>
+              </div>
+            </div>
 
             {/* Tab Buttons */}
             <div className="flex gap-1.5 mb-8 p-1.5 rounded-xl bg-white border border-[rgba(248,200,220,0.8)] w-fit shadow-sm">
@@ -86,13 +95,13 @@ export default function About() {
               {activeTab === 'story' && (
                 <motion.div key="story" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
                   <p className="font-ibm text-text-secondary leading-[1.8] mb-4">
-                    I'm Cheniza Kate — a recent Digital Communication & Visual Arts graduate equipped with cutting-edge design training, strategic content frameworks, and a drive to build memorable online presences.
+                    I'm Cheniza Kate — a proud Cum Laude graduate with a <strong className="text-text-primary">Bachelor of Science in Secondary Education</strong>. My academic background gives me a unique advantage: clear communication, structured presentation, and an innate understanding of how to engage an audience.
                   </p>
                   <p className="font-ibm text-text-secondary leading-[1.8] mb-4">
-                    Whether assisting direct brand founders with complete Instagram management or providing reliable white-label fulfillment for creative agencies, I combine fresh creative vision with dependable execution.
+                    As a fresh graduate, I bring unbounded enthusiasm, quick adaptability, and meticulous attention to detail. I am dedicated to helping brand owners and creative agencies grow through social media management, visual design, and virtual assistance.
                   </p>
                   <blockquote className="border-l-2 border-gold-primary pl-5 mt-4 font-poppins font-normal text-text-primary text-[0.95rem] leading-relaxed">
-                    "Every asset should communicate brand prestige and convert attention into meaningful client action."
+                    "Every brand story deserves to be communicated clearly, beautifully, and purposefully."
                   </blockquote>
                 </motion.div>
               )}
@@ -100,10 +109,10 @@ export default function About() {
               {activeTab === 'philosophy' && (
                 <motion.div key="philosophy" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
                   <p className="font-ibm text-text-secondary leading-[1.8] mb-4">
-                    I approach every project with structured intent. For direct clients, I curate cohesive visual identities and engaging social content. For agencies, I serve as a seamless backend extension—delivering polished assets strictly on schedule.
+                    I approach every project with structured intent and genuine passion. My background in education means I break down complex concepts into engaging, easy-to-digest visuals and captions.
                   </p>
                   <p className="font-ibm text-text-secondary leading-[1.8]">
-                    Clear communication, rapid turnaround times, and flawless execution are the cornerstones of my work.
+                    Whether assisting direct brand founders with full Instagram management or supporting creative agencies with white-label design assets, I guarantee prompt communication, high reliability, and top-quality output.
                   </p>
                 </motion.div>
               )}
@@ -142,3 +151,4 @@ export default function About() {
     </section>
   );
 }
+

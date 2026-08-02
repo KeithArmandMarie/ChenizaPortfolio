@@ -441,17 +441,110 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
+            const name = document.getElementById('name')?.value || '';
+            const email = document.getElementById('email')?.value || '';
+            const clientType = document.getElementById('clientType')?.value || '';
+            const service = document.getElementById('service')?.value || '';
+            const message = document.getElementById('message')?.value || '';
+
             if (submitBtn) {
                 submitBtn.innerHTML = 'Sending...';
                 submitBtn.disabled = true;
                 submitBtn.style.opacity = '0.7';
             }
 
+            const subject = encodeURIComponent(`New Inquiry from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nClient Type: ${clientType}\nService: ${service}\n\nMessage:\n${message}`);
+
             setTimeout(() => {
                 contactForm.style.display = 'none';
                 if (formSuccess) formSuccess.classList.add('is-visible');
-            }, 1200);
+                window.location.href = `mailto:katecheniza1@gmail.com?subject=${subject}&body=${body}`;
+            }, 1000);
         });
     }
 
+    /* --------------------------------------------------------------------------
+       10. AUTOPLAY TESTIMONIAL SLIDER
+       -------------------------------------------------------------------------- */
+    const sliderContainer = document.getElementById('testimonialsSlider');
+    const prevBtn         = document.getElementById('tSliderPrev');
+    const nextBtn         = document.getElementById('tSliderNext');
+    const dotsContainer   = document.getElementById('testimonialDots');
+
+    if (sliderContainer) {
+        const slides = sliderContainer.querySelectorAll('.testimonial-slide');
+        let currentSlide = 0;
+        let slideInterval;
+
+        // Build dots navigation
+        if (dotsContainer && slides.length > 0) {
+            dotsContainer.innerHTML = '';
+            slides.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.classList.add('tslider-dot');
+                if (idx === 0) dot.classList.add('is-active');
+                dot.setAttribute('aria-label', `Go to testimonial slide ${idx + 1}`);
+                dot.addEventListener('click', () => {
+                    goToSlide(idx);
+                    startAutoplay();
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateSlider() {
+            slides.forEach((slide, idx) => {
+                if (idx === currentSlide) {
+                    slide.style.display = 'flex';
+                    slide.style.opacity = '1';
+                } else {
+                    slide.style.display = 'none';
+                    slide.style.opacity = '0';
+                }
+            });
+            const dots = dotsContainer ? dotsContainer.querySelectorAll('.tslider-dot') : [];
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('is-active', idx === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        function startAutoplay() {
+            stopAutoplay();
+            slideInterval = setInterval(nextSlide, 4000);
+        }
+
+        function stopAutoplay() {
+            if (slideInterval) clearInterval(slideInterval);
+        }
+
+        if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAutoplay(); });
+        if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAutoplay(); });
+
+        const sliderWrap = sliderContainer.closest('.testimonials__slider-wrap');
+        if (sliderWrap) {
+            sliderWrap.addEventListener('mouseenter', stopAutoplay);
+            sliderWrap.addEventListener('mouseleave', startAutoplay);
+        }
+
+        updateSlider();
+        startAutoplay();
+    }
+
 });
+

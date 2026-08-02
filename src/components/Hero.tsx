@@ -10,9 +10,9 @@ const fadeUp = (delay = 0) => ({
 });
 
 const stats = [
-  { value: '2026', label: 'Honors Graduate' },
-  { value: '20+', label: 'Brand & Agency Projects' },
-  { value: '100%', label: 'On-Time Execution' },
+  { value: 'BSEd', label: 'Secondary Education' },
+  { value: 'Cum Laude', label: 'Academic Honor' },
+  { value: '100%', label: 'Dedication & Quality' },
 ];
 
 export default function Hero() {
@@ -31,7 +31,7 @@ export default function Hero() {
           {/* Content */}
           <div className="flex flex-col items-start">
 
-            {/* Title — 2 lines only, max 64px, no italic */}
+            {/* Title — 2 lines only */}
             <motion.h1
               {...fadeUp(0.1)}
               className="font-poppins text-[30px] sm:text-[46px] lg:text-[64px] font-bold leading-[1.12] tracking-[-0.02em] text-text-primary mb-6 max-w-[850px]"
@@ -40,12 +40,12 @@ export default function Hero() {
               <span className="text-gold-gradient font-bold">Built for Brands & Creative Agencies.</span>
             </motion.h1>
 
-            {/* Description — Fresh Graduate Copy for Clients & Agencies */}
+            {/* Description — Graduate of Bachelor of Science in Secondary Education, Cum Laude */}
             <motion.p
               {...fadeUp(0.2)}
               className="font-ibm text-[clamp(1.05rem,1.8vw,1.18rem)] text-text-secondary leading-[1.8] max-w-[580px] mb-10"
             >
-              Recent Digital Media & Design graduate crafting high-converting social media strategy, editorial graphics, and turnkey white-label support for direct brand owners and creative agency teams.
+              Graduate of <strong className="text-text-primary font-semibold">Bachelor of Science in Secondary Education, Cum Laude</strong>. Fueled by passion, creativity, and a fresh perspective — crafting engaging social media management, editorial graphic design, and virtual assistance for brands and agencies.
             </motion.p>
 
             {/* Actions */}
@@ -62,11 +62,11 @@ export default function Hero() {
             {/* Stats */}
             <motion.div
               {...fadeUp(0.4)}
-              className="flex items-center gap-10 pt-8 border-t border-[rgba(248,200,220,0.6)] w-full"
+              className="flex items-center gap-8 sm:gap-10 pt-8 border-t border-[rgba(248,200,220,0.6)] w-full flex-wrap"
             >
               {stats.map(({ value, label }) => (
                 <div key={label} className="flex flex-col">
-                  <span className="font-poppins text-[2.2rem] font-bold text-gold-primary leading-none">
+                  <span className="font-poppins text-[1.8rem] sm:text-[2.2rem] font-bold text-gold-primary leading-none">
                     {value}
                   </span>
                   <span className="font-ibm text-[0.78rem] text-text-muted tracking-[0.05em] mt-1">
@@ -89,7 +89,7 @@ export default function Hero() {
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-[rgba(248,200,220,0.8)] shadow-[0_15px_45px_rgba(248,200,220,0.35)] group bg-white">
                 <img
                   src="/images/portrait-hero.jpg"
-                  alt="Cheniza Kate — Brand Strategist & Designer"
+                  alt="Cheniza Kate — Bachelor of Science in Secondary Education, Cum Laude"
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
                   loading="eager"
                 />
@@ -105,11 +105,11 @@ export default function Hero() {
                 className="absolute bottom-[-20px] left-[-20px] bg-white/95 backdrop-blur-[20px] border border-[rgba(248,200,220,0.8)] rounded-xl p-4 flex items-center gap-3.5 z-10 shadow-[0_12px_30px_rgba(248,200,220,0.4)]"
               >
                 <div className="w-10 h-10 rounded-full bg-[#FFF0F5] border border-pink-baby text-gold-primary flex items-center justify-center text-[1.1rem]">
-                  ✦
+                  🎓
                 </div>
                 <div>
-                  <h4 className="font-poppins text-[0.92rem] font-semibold text-text-primary">Fresh Perspective & Rigor</h4>
-                  <p className="font-ibm text-[0.75rem] text-text-secondary">Direct Clients + White-Label Agency Partner</p>
+                  <h4 className="font-poppins text-[0.92rem] font-semibold text-text-primary">BSEd, Cum Laude</h4>
+                  <p className="font-ibm text-[0.75rem] text-text-secondary">Fresh Energy & Educational Rigor</p>
                 </div>
               </motion.div>
             </div>
@@ -176,3 +176,4 @@ export default function Hero() {
     </section>
   );
 }
+
