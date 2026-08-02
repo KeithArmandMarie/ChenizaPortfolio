@@ -6,7 +6,7 @@ import { ArrowUpRight } from 'lucide-react';
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 35 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] },
+  transition: { duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
 });
 
 const stats = [
@@ -81,7 +81,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
             className="relative flex justify-center items-center"
           >
             <div className="relative w-full max-w-[420px] mx-auto">
@@ -101,7 +101,7 @@ export default function Hero() {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
                 className="absolute bottom-[-20px] left-[-20px] bg-white/95 backdrop-blur-[20px] border border-[rgba(248,200,220,0.8)] rounded-xl p-4 flex items-center gap-3.5 z-10 shadow-[0_12px_30px_rgba(248,200,220,0.4)]"
               >
                 <div className="w-10 h-10 rounded-full bg-[#FFF0F5] border border-pink-baby text-gold-primary flex items-center justify-center text-[1.1rem]">
