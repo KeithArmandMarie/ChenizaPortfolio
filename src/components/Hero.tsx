@@ -40,12 +40,12 @@ export default function Hero() {
               <span className="text-gold-gradient font-bold">Built for Brands & Creative Agencies.</span>
             </motion.h1>
 
-            {/* Description — Graduate of Bachelor of Science in Secondary Education, Cum Laude */}
+            {/* Description — Graduate of Bachelor of Secondary Education, Cum Laude */}
             <motion.p
               {...fadeUp(0.2)}
               className="font-ibm text-[clamp(1.05rem,1.8vw,1.18rem)] text-text-secondary leading-[1.8] max-w-[580px] mb-10"
             >
-              Graduate of <strong className="text-text-primary font-semibold">Bachelor of Science in Secondary Education, Cum Laude</strong>. Fueled by passion, creativity, and a fresh perspective — crafting engaging social media management, editorial graphic design, and virtual assistance for brands and agencies.
+              Graduate of <strong className="text-text-primary font-semibold">Bachelor of Secondary Education, Cum Laude</strong>. Fueled by passion, creativity, and a fresh perspective — crafting engaging social media management, editorial graphic design, and virtual assistance for brands and agencies.
             </motion.p>
 
             {/* Actions */}
@@ -89,7 +89,7 @@ export default function Hero() {
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-[rgba(248,200,220,0.8)] shadow-[0_15px_45px_rgba(248,200,220,0.35)] group bg-white">
                 <img
                   src="/images/portrait-hero.jpg"
-                  alt="Cheniza Kate — Bachelor of Science in Secondary Education, Cum Laude"
+                  alt="Cheniza Kate — Bachelor of Secondary Education, Cum Laude"
                   className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
                   loading="eager"
                 />

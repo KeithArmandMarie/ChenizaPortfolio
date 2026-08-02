@@ -42,7 +42,7 @@ export default function About() {
               <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-[rgba(248,200,220,0.8)] shadow-[0_15px_40px_rgba(248,200,220,0.35)] bg-white">
                 <img
                   src="/images/portrait-about.jpg"
-                  alt="Cheniza Kate — Bachelor of Science in Secondary Education, Cum Laude"
+                  alt="Cheniza Kate — Bachelor of Secondary Education, Cum Laude"
                   className="w-full h-full object-cover object-top"
                   loading="lazy"
                 />
@@ -67,7 +67,7 @@ export default function About() {
             <div className="mb-6 inline-flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white border border-[rgba(248,200,220,0.8)] shadow-sm">
               <span className="text-xl">🎓</span>
               <div>
-                <div className="font-poppins font-bold text-[0.88rem] text-text-primary">Bachelor of Science in Secondary Education</div>
+                <div className="font-poppins font-bold text-[0.88rem] text-text-primary">Bachelor of Secondary Education</div>
                 <div className="font-ibm text-[0.78rem] font-semibold text-gold-primary">Cum Laude Graduate</div>
               </div>
             </div>
@@ -95,7 +95,7 @@ export default function About() {
               {activeTab === 'story' && (
                 <motion.div key="story" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
                   <p className="font-ibm text-text-secondary leading-[1.8] mb-4">
-                    I'm Cheniza Kate — a proud Cum Laude graduate with a <strong className="text-text-primary">Bachelor of Science in Secondary Education</strong>. My academic background gives me a unique advantage: clear communication, structured presentation, and an innate understanding of how to engage an audience.
+                    I'm Cheniza Kate — a proud Cum Laude graduate with a <strong className="text-text-primary">Bachelor of Secondary Education</strong>. My academic background gives me a unique advantage: clear communication, structured presentation, and an innate understanding of how to engage an audience.
                   </p>
                   <p className="font-ibm text-text-secondary leading-[1.8] mb-4">
                     As a fresh graduate, I bring unbounded enthusiasm, quick adaptability, and meticulous attention to detail. I am dedicated to helping brand owners and creative agencies grow through social media management, visual design, and virtual assistance.
